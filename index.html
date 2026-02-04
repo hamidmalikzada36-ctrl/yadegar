@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دوستی‌مان پایدار</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ===== صفحه شروع ===== */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fadeOut 3s ease forwards;
+  animation-delay: 2.5s;
+}
+
+#intro h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px #fff;
+}
+
+#intro p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ===== بکگراند ===== */
+.main {
+  min-height: 100vh;
+  background: url("background.jpg") center/cover fixed;
+  padding: 20px;
+}
+
+/* ===== تیتر ===== */
+.title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 22px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+}
+
+/* ===== گالری ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow:
+    4px 4px 10px rgba(0,0,0,0.7),
+    -2px -2px 6px rgba(255,255,255,0.1);
+}
+
+/* ===== ویدیو ===== */
+.video-box {
+  margin: 30px 0;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow:
+    6px 6px 15px rgba(0,0,0,0.8),
+    -3px -3px 8px rgba(255,255,255,0.1);
+}
+
+/* ===== متن پایانی ===== */
+.footer-text {
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.8;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" autoplay loop muted playsinline>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<
+
+<!-- بقیه کدهای سایت اینجا هست -->
+<!-- صفحه شروع -->
+<div id="intro">
+  <h1>دوستی‌مان پایدار</h1>
+  <p>...</p>
+</div>
+
+<!-- محتوای اصلی -->
+<div class="main">
+
+  <div class="title">
+    عکس‌های یادگاری آرزو و سحر
+  </div>
+
+  <div class="gallery">
+    <img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+<img src="img5.jpg">
+<img src="img6.jpg">
+<img src="img7.jpg">
+    <
+  </div>
+
+  <div class="video-box">
+    <video controls>
+      <<source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="footer-text">
+    اگر هرچقدر از هم دور باشیم، این عکس‌ها باعث یادآوری خاطرات همدیگر ماست  
+    و همیشه به یاد هم می‌مانیم.
+  </div>
+
+</div>
+<script>
+const music = document.getElementById("bgMusic");
+
+function startMusic() {
+  music.muted = false;
+  music.play();
+  document.removeEventListener("touchstart", startMusic);
+  document.removeEventListener("click", startMusic);
+}
+
+document.addEventListener("touchstart", startMusic);
+document.addEventListener("click", startMusic);
+</script>
+
+</body>
+</html>
