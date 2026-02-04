@@ -107,6 +107,31 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.8);
 }
 </style>
+  .music-start-box{
+  text-align: center;
+  margin: 25px 0 15px 0;
+}
+
+#startBtn{
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 35px;
+  background: linear-gradient(145deg, #7b2cff, #a855f7);
+  box-shadow:
+    0 6px 0 #5a1fbf,
+    0 12px 20px rgba(123,44,255,0.6);
+  cursor: pointer;
+}
+
+#startBtn:active{
+  transform: translateY(6px);
+  box-shadow:
+    0 2px 0 #5a1fbf,
+    0 6px 10px rgba(123,44,255,0.4);
+}
 </head>
 
 <body>
@@ -129,7 +154,11 @@ body {
   <div class="title">
     عکس‌های یادگاری آرزو و سحر
   </div>
-
+<div class="music-start-box">
+  <button id="startBtn" onclick="startMusic()">
+    ▶ شروع آهنگ
+  </button>
+</div>
   <div class="gallery">
     <img src="img1.jpg">
 <img src="img2.jpg">
@@ -172,15 +201,20 @@ document.addEventListener("click", startMusic);
 
 <button onclick="toggleMusic()" class="music-btn">🎵</button>
 
-<script>
-  const music = document.getElementById("bgMusic");
-  function toggleMusic() {
-    if (music.paused) {
-      music.play();
-    } else {
-      music.pause();
-    }
-  }
 </script>
+  <audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("startBtn");
+
+  function startMusic() {
+    music.play();
+    btn.innerText = "🎶 در حال پخش";
+    btn.style.pointerEvents = "none";
+    btn.style.opacity = "0.7";
+  }
+  </script>
 </body>
 </html>
