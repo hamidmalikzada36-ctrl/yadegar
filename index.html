@@ -6,9 +6,7 @@
 <title>دوستی‌مان پایدار</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -16,6 +14,62 @@ body {
   background: #000;
   color: #fff;
   overflow-x: hidden;
+}
+
+/* ===== صفحه لاگین ===== */
+#loginPage {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.login-box {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  width: 300px;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#errorMsg {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* ===== مخفی بودن سایت قبل از ورود ===== */
+#siteContent {
+  display: none;
 }
 
 /* ===== صفحه شروع ===== */
@@ -32,32 +86,16 @@ body {
   animation-delay: 2.5s;
 }
 
-#intro h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-  text-shadow: 0 0 15px #fff;
-}
-
-#intro p {
-  font-size: 18px;
-  opacity: 0.8;
-}
-
 @keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
+  to { opacity: 0; visibility: hidden; }
 }
 
-/* ===== بکگراند ===== */
 .main {
   min-height: 100vh;
   background: url("background.jpg") center/cover fixed;
   padding: 20px;
 }
 
-/* ===== تیتر ===== */
 .title {
   text-align: center;
   margin: 20px 0;
@@ -65,10 +103,8 @@ body {
   background: rgba(0,0,0,0.6);
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
 
-/* ===== گالری ===== */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -78,105 +114,89 @@ body {
 .gallery img {
   width: 100%;
   border-radius: 12px;
-  box-shadow:
-    4px 4px 10px rgba(0,0,0,0.7),
-    -2px -2px 6px rgba(255,255,255,0.1);
 }
 
-/* ===== ویدیو ===== */
-.video-box {
-  margin: 30px 0;
-}
+.video-box { margin: 30px 0; }
 
 .video-box video {
   width: 100%;
   border-radius: 14px;
-  box-shadow:
-    6px 6px 15px rgba(0,0,0,0.8),
-    -3px -3px 8px rgba(255,255,255,0.1);
 }
 
-/* ===== متن پایانی ===== */
 .footer-text {
   margin-top: 25px;
   padding: 15px;
   background: rgba(0,0,0,0.6);
   border-radius: 12px;
   text-align: center;
-  line-height: 1.8;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
 }
 </style>
 </head>
 
 <body>
 
-<audio id="bgMusic" autoplay loop muted playsinline>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-<
+<!-- ===== صفحه ورود ===== -->
+<div id="loginPage">
+  <div class="login-box">
+    <h2>🔒 ورود به سایت</h2>
+    <input type="password" id="passwordInput" placeholder="رمز را وارد کنید">
+    <button onclick="checkPassword()">ورود</button>
+    <div id="errorMsg"></div>
+  </div>
+</div>
 
-<!-- بقیه کدهای سایت اینجا هست -->
-<!-- صفحه شروع -->
+<!-- ===== کل سایت داخل این ===== -->
+<div id="siteContent">
+
 <div id="intro">
   <h1>دوستی‌مان پایدار</h1>
   <p>...</p>
 </div>
 
-<!-- محتوای اصلی -->
 <div class="main">
 
-  <div class="title">
-    عکس‌های یادگاری آرزو و سحر
-  </div>
-<div class="music-start-box">
-  <button id="startBtn" onclick="startMusic()">
-    ▶ شروع آهنگ
-  </button>
+<div class="title">
+  عکس‌های یادگاری آرزو و سحر
 </div>
-  <div class="gallery">
-    <img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-<img src="img4.jpg">
-<img src="img5.jpg">
-<img src="img6.jpg">
-<img src="img7.jpg">
-<img src="img8.jpg">
-  </div>
 
-  <div class="video-box">
-    <video controls>
-      <<source src="video.mp4" type="video/mp4">
-    </video>
-  </div>
+<div class="gallery">
+  <img src="img1.jpg">
+  <img src="img2.jpg">
+  <img src="img3.jpg">
+  <img src="img4.jpg">
+  <img src="img5.jpg">
+  <img src="img6.jpg">
+  <img src="img7.jpg">
+  <img src="img8.jpg">
+</div>
 
-  <div class="footer-text">
-    اگر هرچقدر از هم دور باشیم، این عکس‌ها باعث یادآوری خاطرات همدیگر ماست  
-    و همیشه به یاد هم می‌مانیم.
-  </div>
+<div class="video-box">
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="footer-text">
+اگر هرچقدر از هم دور باشیم، این عکس‌ها باعث یادآوری خاطرات همدیگر ماست  
+و همیشه به یاد هم می‌مانیم.
+</div>
 
 </div>
+</div>
+
 <script>
-const music = document.getElementById("bgMusic");
+const correctPassword = "arozo25"; // 👈 اینجا رمزتو بنویس
 
-function startMusic() {
-  music.muted = false;
-  music.play();
-  document.removeEventListener("touchstart", startMusic);
-  document.removeEventListener("click", startMusic);
+function checkPassword() {
+  const entered = document.getElementById("passwordInput").value;
+  if (entered === correctPassword) {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("siteContent").style.display = "block";
+  } else {
+    document.getElementById("errorMsg").innerText = "❌ رمز اشتباه است!";
+  }
 }
-
-document.addEventListener("touchstart", startMusic);
-document.addEventListener("click", startMusic);
 </script>
-<audio id="bgMusic" autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
 
-<button onclick="toggleMusic()" class="music-btn">🎵</button>
-
-  </script>
-  
 </body>
 </html>
